@@ -17,6 +17,3 @@ console.log(org_data);
 //renaming a file
 
 fs.renameSync('read.txt','readwrite_coreModule.txt');
-
-
-
