@@ -10,3 +10,21 @@ const fs = require("fs");
 //     console.log("file appended success");
 // })
 
+//reading 
+
+
+fs.readFile('bio.txt',"UTF-8",(err,data) => {
+    console.log(data);
+
+})
+
+//reading encryoted content
+fs.readFile('bio.txt',(err,data) => {
+    console.log(data);
+
+})
+//renaming 
+
+fs.rename("asynChallenge/bio.txt","asynChallenge/bioData.txt",(err) => {
+    console.log("success");
+});
