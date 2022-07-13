@@ -25,6 +25,6 @@ fs.readFile('bio.txt',(err,data) => {
 })
 //renaming 
 
-fs.rename("asynChallenge/bio.txt","asynChallenge/bioData.txt",(err) => {
+fs.rename("bio.txt","bioData.txt",(err) => {
     console.log("success");
 });
