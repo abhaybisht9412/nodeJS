@@ -13,3 +13,4 @@ console.log(mul(10,5))
 console.log(mod(10,5));
 console.log(name);
 
+
