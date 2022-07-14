@@ -9,6 +9,7 @@
   "author": "abhay",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^5.0.1",
+    "validator": "^13.7.0"
   }
 }
