@@ -1,6 +1,7 @@
 //importing from http module
 const log = console.log;
 import http from "http" ;
+import fs from "fs" ;
 //creating server
 const server = http.createServer((req,res) => {
     //request object used to get info about current http request
@@ -13,16 +14,22 @@ const server = http.createServer((req,res) => {
         res.end("hello from the about side!");
     }else if(req.url == "/contact"){
         res.end("hello from the contact side!");
+    }else if(req.url == "/api"){
+        fs.readFile(`${__dirname/httpServer/userApi/userapi.json}`,"UTF-8",(err,data) => {
+            log(data) ;
+        })
     }else{
-        //it will still show the status code as 200 which is incorrect it shoudle be in the range 400-500 in the network panel in inspect
+        //it will still show the status code as 200 which is incorrect it shoudl be in the range 400-500 in the network panel in inspect
         res.writeHead(404,{"Content-type": "text/html"}); //now status 404 \/ and content type html
         res.end("<h1> Error 404 ! not found :( </h1>");
+
     }
 });
 
 server.listen(8000, "127.0.0.1", () => {
     console.log("listening to port no. 8000") ;
 });
+
 
 
 
