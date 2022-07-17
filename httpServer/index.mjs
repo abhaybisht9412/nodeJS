@@ -9,15 +9,20 @@ const server = http.createServer((req,res) => {
     //reqeust url afftr localhost:8000/contact                      
     log(req.url);
     if(req.url == "/"){
-        res.end("hello from the home side!");
+        res.end("hello from the home side!"); 
     }else if(req.url == "/about"){
         res.end("hello from the about side!");
     }else if(req.url == "/contact"){
         res.end("hello from the contact side!");
-    }else if(req.url == "/api"){
-        fs.readFile(`${__dirname/httpServer/userApi/userapi.json}`,"UTF-8",(err,data) => {
-            log(data) ;
-        })
+    }else if(req.url == "/userapi"){
+        fs.readFile('userApi/userapi.json',"UTF-8",(err,data) => {  //api cz we require data
+            log(data) ; //data is in json format need to convert it into js object...array of object
+            //to print first user
+            const objData = JSON.parse(data);
+            
+            res.end(objData[0].name);
+            res.end(data);
+        }) ;
     }else{
         //it will still show the status code as 200 which is incorrect it shoudl be in the range 400-500 in the network panel in inspect
         res.writeHead(404,{"Content-type": "text/html"}); //now status 404 \/ and content type html
@@ -29,10 +34,6 @@ const server = http.createServer((req,res) => {
 server.listen(8000, "127.0.0.1", () => {
     console.log("listening to port no. 8000") ;
 });
-
-
-
-
 
 // Informational responses (100–199)
 // Successful responses (200–299)
