@@ -224,12 +224,12 @@
       <div class="info">
         <h2 class="location">
           <i class="fas fa-street-view" style="color: #fff"></i
-          >Dehradun,IN
+          >{%location%},{%country%}
         </h2>
         <p id="date">WED | nov 23 | 10:49AM</p>
-        <h1 class="temp">20</h1>
+        <h1 class="temp">{%tempval%}</h1>
         <h3 class="tempmin_max">
-          Min  | Max  
+          Min {%tempmin%} | Max {%tempmax%}  
         </h3>
       </div>
     </div>
@@ -280,7 +280,7 @@
 
         
         let period = "AM" ;
-          if(hours >= 12){
+          if(hours >= 12){ 
             period = "PM";
           }
           console.log(`${hours}:${minutes} ${period}`);
