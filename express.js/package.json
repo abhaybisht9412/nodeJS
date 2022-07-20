@@ -1,0 +1,14 @@
+{
+  "name": "npm_for_express",
+  "version": "1.0.0",
+  "description": "npm for express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abhay",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
