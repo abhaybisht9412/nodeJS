@@ -8,6 +8,8 @@ const port = 8000 ;
 //rather use function we will use app.set() to access hbs file
 
 app.set("view engine","hbs") ; //sirf itna likhne se nahi chlega
+//renaming
+app.set('views','../src/templates'); //views reanmed as templates
 
 //so we need template engine route
 app.get("/",(req,res) => {
@@ -21,3 +23,5 @@ app.get('/', (req,res) => {
 app.listen(port, () => {
     console.log(`listening to port no. ${port}`);
 })
+
+//views will be renamed as template folder
