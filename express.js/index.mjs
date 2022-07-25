@@ -13,7 +13,7 @@ const app = express() ;
 // console.log(path.join(__dirname,"../public"));
 
 //builtin middleware
- app.use(express.static('public')) ;
+ app.use(express.static('public/scrambleGame')) ;
 
 app.get('/',(req,res) => {
     // console.log(__dirname,"../public");
