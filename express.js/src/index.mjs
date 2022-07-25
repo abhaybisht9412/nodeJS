@@ -10,7 +10,7 @@ const port = 8000 ;
 
 // log(path.join(__dirname,'../public'));
 
-app.use(express.static('../public/scrambleGame')) ;
+app.use(express.static('../public/website 4')) ;
 
 app.get('/', (req,res) => {
     res.send("hello from server") ;
