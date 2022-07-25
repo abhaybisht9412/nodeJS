@@ -1,9 +1,23 @@
 import express from 'express' ;
+import path from 'path';
+import url from 'url';
+//defining url
 
+
+const __dirname = new URL('.',import.meta.url).pathname ;
 const app = express() ;
 
+// console.log(__dirname);
+const staticPath = path.join(__dirname,"../public/index.html") ;
+
+// console.log(path.join(__dirname,"../public"));
+
+//builtin middleware
+ app.use(express.static(staticPath)) ;
+
 app.get('/',(req,res) => {
-    res.send("ello express.js") ;
+    // console.log(__dirname,"../public");
+    res.send("hello from home") ;
 })
 app.get('/about',(req,res) => {
     res.send("hello from about") ;
