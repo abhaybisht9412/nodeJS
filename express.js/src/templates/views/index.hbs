@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>handlebars!</title>
+    <title>Welcome to UTTARAKHAND</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>under moustache !</h1>
+    <!-- "https://www.shutterstock.com/search/uttarakhand-tourism" -->
+    <!-- "https://uttarakhandtourism.gov.in/" -->
+
+    {{>header.hbs}} 
+     {{!-- //element of hbs ,this is defined for partials as a header --}}
+     
+    {{!-- header part --}}
+    <header class="header">
+        <nav>
+            <div class="logo"><h1 class=" animate__heartBeat">MERA BHARAT</h1></div>
+            <div class="menu">
+                <a href="https://uttarakhandtourism.gov.in/" target="_blank">home</a>
+                <a href="https://www.shutterstock.com/search/uttarakhand-tourism" target="_blank">gallery</a>
+                <a href="https://registrationandtouristcare.uk.gov.in/signin.php">about</a>
+                <a href="#" target="_blank">contact</a>
+            </div>
+        </nav>
+
+        {{!-- hero section  --}}
+            <main>
+                <section>
+                    <h3>welcome to uttarakhand-tourism</h3>
+                    <h1>do come and visit!
+                        <span class="change-content"></span>
+                    </h1>
+                    <p>devbhoomi</p>
+                    <a href="#" class="btn1">signup here</a>
+                    <a href="#" class="btn2">learn more</a>
+                </section>
+            </main>
+      
+    
 </body>
 </html>
