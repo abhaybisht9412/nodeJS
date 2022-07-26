@@ -1,5 +1,5 @@
 //this is only for purpose of index.hbs at views folder
-
+import hbs from 'hbs';
 import express from 'express';
 
 const app = express() ;
@@ -10,6 +10,8 @@ const port = 8000 ;
 app.set("view engine","hbs") ; //sirf itna likhne se nahi chlega
 //renaming
 app.set('views','../src/templates'); //views reanmed as templates
+//new lecture k liye partails folder mai content dalne k liye
+hbs.registerPartials('../src/templates/partials') ;
 
 //so we need template engine route
 app.get("/",(req,res) => {
