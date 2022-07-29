@@ -112,6 +112,8 @@ color: var(--main-color);
 /* error image css */
 .errImg img{
     width: 60rem;
+    height: 30rem;
+    
 }
 
 /* weather style (temp) */
@@ -166,10 +168,10 @@ color: var(--main-color);
 .fa{
     color: #009ad8;
 }
-.data-hide{
+/* .data-hide{
 visibility: hidden;
 transition: all 0.3s;
-}
+} */
 
 /* search bar form */
 .myForm{
