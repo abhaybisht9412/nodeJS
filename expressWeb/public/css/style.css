@@ -193,8 +193,12 @@ transition: all 0.3s;
 ::placeholder{
     color: wheat;
 }
+.myForm input[type="text"]{
+    text-decoration: none;
+}
 .myForm input[type="submit"]
 {
+   
     position: absolute;
     top:5px;
     right: 5px;
