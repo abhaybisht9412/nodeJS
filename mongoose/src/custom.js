@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 const log = console.log ;
 
 // connection to db
@@ -25,6 +26,17 @@ const showSchema = new mongoose.Schema({
     },
     production : String ,
     active : Boolean ,
+    email : {
+        type : String ,
+        required : true ,
+        trim : true,
+        unique : true ,
+        validate (value){
+            if(!validator.isEmail(value)){
+                throw new Error ("email invalid")
+            }
+        }
+    } ,
     date : {
          type : Date,
         default : Date.now
@@ -42,6 +54,7 @@ const firstShow = new RatingModel({
     genre : "Thriller/Action/Mystery" ,
     season : 2 ,
     production : "Hotstar" ,
+    email : "hotstar123@gmail.com"  ,//correct email,
     active : true 
  }) 
  const secondModel = new RatingModel({
@@ -49,6 +62,9 @@ const firstShow = new RatingModel({
     genre : "Thriller/Action/Mystery/Drama" ,
     season : 3 ,
     production : "Amazon Prime" ,
+    // email : "amazon.prime@go", this one is invalid
+    email : "amazonPrime@gmail.com" ,
+    //correct 
     active : true 
  })
  const res = await RatingModel.insertMany([firstShow , secondModel]);
