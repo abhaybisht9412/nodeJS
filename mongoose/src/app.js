@@ -134,14 +134,14 @@ const Playlist  = new mongoose.model("Playlist",playlistSchema);
 
 // updateDoc("6306026a3caa011bb0f0a0a2") ;
 
-const deleteDoc = async (_id) => {
-    try{
-        const result = Playlist.findByIdAndDelete({_id} ); 
-    console.log(result);
+// const deleteDoc = async (_id) => {
+//     try{
+//         const result = Playlist.findByIdAndDelete({_id} ); 
+//     console.log(result);
 
-    }catch (err) {
-        console.log(err);
-    }
-}
-deleteDoc("6306026a3caa011bb0f0a0a2");
+//     }catch (err) {
+//         console.log(err);
+//     }
+// }
+// deleteDoc("6306026a3caa011bb0f0a0a2");
 
