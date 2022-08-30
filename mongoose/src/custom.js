@@ -49,7 +49,7 @@ const RatingModel = new mongoose.model("RatingModel", showSchema) ;
 //adding docs
 const addShow = async () => {
 try{
-const firstShow = new RatingModel({
+const firstShow = new RatingModel({ 
     name : "Special Ops" ,
     genre : "Thriller/Action/Mystery" ,
     season : 2 ,
