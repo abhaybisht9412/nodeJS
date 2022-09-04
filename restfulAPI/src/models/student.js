@@ -6,13 +6,13 @@ const validator = require('validator');
 const studentSchema = new mongoose.Schema({
     name : {
         type : String ,
-        required : true ,
-        minlegth : 3 ,
-        trim : true
+        required : [true ,"name is required"] ,
+        minlength : 3 
     } ,
-    email : {
+    email : { 
         type : String ,
-        required : true ,
+        lowercase : true ,
+        required : [true ,"email is required"] ,
         unique : [true ,"email already present"] ,
         validate (val) {
             if( !validator.isEmail(val) ){
@@ -22,17 +22,17 @@ const studentSchema = new mongoose.Schema({
     } ,
     phone : {
         type : Number ,
-        min : 10 ,
-        max : 10 ,
-        required : true,
+        min : 10,
+        required : [true ,"phone no. is required"],
         unique : true
     } ,
     address : {
         type : String ,
-        required : true
+        required : [true ,"address is required"]
     }
 }) //end of schema
 
 //defining model
-const StudentModel = new mongoose.Model("StudentModel" ,studentSchema);
+const StudentModel = new mongoose.model("StudentModel" ,studentSchema);
+
 module.exports = StudentModel;
