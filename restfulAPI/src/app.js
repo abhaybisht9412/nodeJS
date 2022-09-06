@@ -1,22 +1,25 @@
 const express = require('express');
+const studentRoute = require("./routers/student")
 
-const app = express() ; 
+const router = express() ; 
 const port = process.env.PORT || 8000 ; 
 
 require('./db/conn'); 
 
+//register the router
+router.use(studentRoute);
 //This part is for POST
-app.use(
+router.use(
     express.urlencoded({ extended: true })
 );
     
-app.use(express.json());
+router.use(express.json());
 
 //creating new student using MODEL
 const StudentModel = require ('./models/student.js');
 
 //this is the promise method
-// app.post("/students" , (req ,res) => {
+// router.post("/students" , (req ,res) => {
 
 //     //  const newStudent = new StudentModel(req.body);
 //      const newStudent = new StudentModel({
@@ -34,32 +37,19 @@ const StudentModel = require ('./models/student.js');
 //      })
 // })  end of promise method
 
+//creating a new router which is in routers folder
+
+
+
 //using async await of advanced js
-app.post("/students" ,async(req , res) => {
-   
-   try{
-      const newStudent = new StudentModel(req.body);
-      const createUser = await newStudent.save();
-      res.status(201).send(newStudent);
-   }catch(err){
-      res.status(400).send(err);
-   }
-})
+
 
  //end of POST
 
-// READ OR GET students
-app.get("/students" , async(req ,res) => {
-   try {
-    const studentsData = await StudentModel.find();
-    res.send(studentsData);
-   } catch (error) {
-      res.send(error);
-   }
-})
+
 
 //get data of a specific student by id
-// app.get("/students/:id" , async (req ,res) => {
+// router.get("/students/:id" , async (req ,res) => {
 //    try {
 //       const _id = req.params.id; //getting value of id
 //       const studentData = await StudentModel.findById(_id);
@@ -75,7 +65,7 @@ app.get("/students" , async(req ,res) => {
 
 //find student by name
 
-// app.get("/students/:name" , async (req , res) => {
+// router.get("/students/:name" , async (req , res) => {
 //    try {
 //       const getName = req.params.name;
 //       console.log(getName);
@@ -90,9 +80,9 @@ app.get("/students" , async(req ,res) => {
 //       res.status(501).send(error);
 //    }
 // })
-
+ 
 //updating students by id630effab176692abb35a1060
-app.patch("/students/:id" , async (req , res) => {
+router.patch("/students/:id" , async (req , res) => {
    try {
       const _id = req.params.id;
       const updateStudent = await StudentModel.findByIdAndUpdate(_id,req.body);
@@ -102,6 +92,6 @@ app.patch("/students/:id" , async (req , res) => {
    }
 })
 
-app.listen(port ,() => {
+router.listen(port ,() => {
    console.log(`listening to PORT NO ${port}`);
 })
