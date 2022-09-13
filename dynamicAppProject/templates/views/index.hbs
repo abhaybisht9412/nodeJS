@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="css/style.css">
+    {{!-- this above is for css  --}}
+    <title>Document</title>
+</head>
+<body>
+   {{!-- navbar partial --}}
+   {{>navbar}}
+
+    {{!-- hero section begin --}}
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    {{!-- left side --}}
+                    <div class="col-md-6 col-12 hero-text order-md-0 order-1">
+                        <h1>We host</h1>
+                        <h1>Football Tournaments</h1>
+                        <p>We Are the <span class="bold-style">Committee members😃</span></p>
+                        <button class="btn-style btn-primary">Learn More</button>
+                    </div>
+                    {{!-- right side --}}
+                    <div class="col-md-6 col-12 hero-text order-md-1 order-0">
+                        <figure>
+                            <img src="https://cdn.pixabay.com/photo/2013/07/13/09/41/soccer-155947__340.png" alt="heroSectionimg">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- hero section ends --}}
+
+    {{!-- about us page begin --}}
+    {{>about}}
+    {{!-- about us page ends --}}
+    
+    {{!-- services page begin --}}
+    {{>services}}
+    {{!-- services page ends --}}
+
+    <script src="../jq/jquey.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.js" type="text/javascript"></script>   
+</body>
+</html>
