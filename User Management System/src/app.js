@@ -4,7 +4,6 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');
-const { hasSubscribers } = require('diagnostics_channel');
 
 const app = express();
 
@@ -35,6 +34,10 @@ app.use('/js',express.static(path.resolve(__dirname,"public/js"))) ;
 app.get("/", (req , res) => {
     // res.send("Main route");
     res.render("index");
+})
+app.get("/add-user", (req , res) => {
+    // res.send("Main route");
+    res.render("add_user");
 })
 
 app.listen(port , () => {

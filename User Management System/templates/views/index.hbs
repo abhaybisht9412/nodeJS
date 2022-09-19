@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-    <title>USER app</title>
+    <link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.Jq6ce5haZWdFHwlxlO01xgHaHa?pid=ImgDet&w=221&h=221&c=7&dpr=1.25" type="image/x-icon">
+     <title>USER app</title>
 </head>
 <body>
     {{!-- header begin  --}}
@@ -17,9 +18,11 @@
     <main id="site-main">
         <div class="container">
             <div class="box-nav d-flex justify-between">
-                <a href="/add-user" class="border-shadow">
-                <span class="text-gradient">New User <i class="fa-solid fa-user"></i></span>
-                </a>
+                <div class="filter">
+                    <a href="/add-user" class="border-shadow" target="_blank">
+                     <span class="text-gradient">New User <i class="fas fa-user"></i></span><i></i>
+                     </a>
+                </div>
             </div>
 
             {{!-- form handling --}}
