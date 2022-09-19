@@ -24,9 +24,9 @@ app.set("view engine","hbs");
 app.set("views",pathForViews);
 hbs.registerPartials(pathForPartials);
 
-// console.log(__dirname);
+// console.log(__dirname);  
 
-//load assets
+//load public
 app.use('/css',express.static(path.resolve(__dirname,"public/css"))) ;
 app.use('/img',express.static(path.resolve(__dirname,"public/img"))) ;
 app.use('/js',express.static(path.resolve(__dirname,"public/js"))) ;
@@ -36,8 +36,12 @@ app.get("/", (req , res) => {
     res.render("index");
 })
 app.get("/add-user", (req , res) => {
-    // res.send("Main route");
+    // res.send("add user");
     res.render("add_user");
+})
+app.get("/update-user" , (req , res) => {
+    // res.send("update user");
+    res.render("update_user");
 })
 
 app.listen(port , () => {
