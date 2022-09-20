@@ -177,3 +177,18 @@ background-color:antiquewhite;
     background-color: var(--dark);
     color: var(--border);
 }
+footer{
+    width: 100%;
+    background-color: #1e272e;
+    margin-top: auto;
+    display: table-row;
+    height: 0;
+}
+
+footer p{
+    margin: 0;
+    text-align: center;
+    color: #fff;
+    line-height: 5rem;
+    font-size: 1.4rem;
+}

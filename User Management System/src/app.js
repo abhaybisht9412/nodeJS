@@ -5,9 +5,11 @@ const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');
 
+const connectDB = require('./server/db/conn')
+
 const app = express();
 
-dotenv.config({path:'config.env'})
+dotenv.config({path:path.resolve(__dirname, '../src/config.env')});
 const port = 8000 || process.env.PORT;
 
 const pathForViews = path.join(__dirname , "../templates/views");
@@ -15,6 +17,9 @@ const pathForPartials = path.join(__dirname , "../templates/partials");
 
 //log req using morgan
 app.use(morgan('tiny'));
+
+//mongoBD connection
+connectDB();
 
 //parse req to body parser
 app.use(bodyparser.urlencoded({extended:true}));
@@ -31,18 +36,8 @@ app.use('/css',express.static(path.resolve(__dirname,"public/css"))) ;
 app.use('/img',express.static(path.resolve(__dirname,"public/img"))) ;
 app.use('/js',express.static(path.resolve(__dirname,"public/js"))) ;
 
-app.get("/", (req , res) => {
-    // res.send("Main route");
-    res.render("index");
-})
-app.get("/add-user", (req , res) => {
-    // res.send("add user");
-    res.render("add_user");
-})
-app.get("/update-user" , (req , res) => {
-    // res.send("update user");
-    res.render("update_user");
-})
+//load routers
+app.use('/',require('../src/server/routes/router'))
 
 app.listen(port , () => {
     console.log(`listening to port NO. ${port}`);
