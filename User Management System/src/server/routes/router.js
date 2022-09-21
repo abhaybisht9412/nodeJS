@@ -1,10 +1,19 @@
 const express = require('express');
 const route = express.Router();
 const controller = require('../controller/control')
+const axios = require('axios');
+
 
 route.get("/", (req , res) => {
     // res.send("Main route");
-    res.render("index",{users : "New Data"});
+    //make a get req to /api/users
+    axios.get('http://localhost:8000/api/users')
+    .then(function(response){
+        // console.log(response.data);
+        res.render("index",{users : response.data}); 
+    }).catch(err => {
+        res.send(err);
+    })
 })
 route.get("/add-user", (req , res) => {
     // res.send("add user");

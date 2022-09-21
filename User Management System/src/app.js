@@ -14,6 +14,7 @@ const port = 8000 || process.env.PORT;
 
 const pathForViews = path.join(__dirname , "../templates/views");
 const pathForPartials = path.join(__dirname , "../templates/partials");
+app.use(express.json());
 
 //log req using morgan
 app.use(morgan('tiny'));
@@ -28,6 +29,14 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set("view engine","hbs");
 app.set("views",pathForViews);
 hbs.registerPartials(pathForPartials);
+
+//own helpers
+hbs.registerHelper('times', function(n, block) {
+    var accum = '';
+    for(var i = 0; i < n; ++i)
+        accum += block.fn(i);
+    return accum;
+});
 
 // console.log(__dirname);  
 

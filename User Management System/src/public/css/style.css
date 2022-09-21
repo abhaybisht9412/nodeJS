@@ -94,6 +94,7 @@ table{
 }
 .table tr:hover td > a {
     box-shadow: none;
+    border: #adb5bd;
 }
 .table .thead-dark th{
     color: white;
@@ -179,10 +180,9 @@ background-color:antiquewhite;
 }
 footer{
     width: 100%;
-    background-color: #1e272e;
+    background-color: var(--dark) ;
     margin-top: auto;
-    display: table-row;
-    height: 0;
+
 }
 
 footer p{
@@ -190,5 +190,5 @@ footer p{
     text-align: center;
     color: #fff;
     line-height: 5rem;
-    font-size: 1.4rem;
+    font-size: 1rem;
 }

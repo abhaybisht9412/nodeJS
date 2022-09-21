@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+{{!-- {{{>head}}} --}}
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +11,7 @@
     <link rel="shortcut icon" href="https://th.bing.com/th/id/OIP.Jq6ce5haZWdFHwlxlO01xgHaHa?pid=ImgDet&w=221&h=221&c=7&dpr=1.25" type="image/x-icon">
      <title>USER app</title>
 </head>
+
 <body>
     {{!-- header begin  --}}
    {{>header}}
@@ -39,12 +42,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                       {{#each users}}
+                       
                         <tr>
-                            <td>1</td>
-                            <td>abc</td>
-                            <td>abc@gmail.com</td>
-                            <td>Male</td>
-                            <td>Active</td>
+                            <td>{{this._id}}</td>                       
+                            <td>{{this.name}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.gender}}</td>
+                            <td>{{this.status}}</td>
                             <td>
                                 <a href="/update-user" class="btn  border-shadow update">
                                     <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
@@ -53,15 +58,13 @@
                                     <span class="text-gradient"><i class="fa-solid fa-circle-xmark"></i></span>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> 
+                        {{/each}}
                     </tbody>
                 </table>
                 </form>
             {{!-- form handling ends--}}
-            {{users}}
         </div>
     </main>
     {{!-- hero section ends --}}
-    {{!-- {{>footer}} --}}
-</body>
-</html>
+    {{>footer}}
