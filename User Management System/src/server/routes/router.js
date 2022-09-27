@@ -21,7 +21,14 @@ route.get("/add-user", (req , res) => {
 })
 route.get("/update-user" , (req , res) => {
     // res.send("update user");
-    res.render("update_user");
+    
+    axios.get('http://localhost:8000/api/users',{params : {id : req.query.id}})
+    .then(function(userData){
+        res.render("update_user" , {user : userData.data})
+    })
+    .catch(err => {
+        res.send(err);
+    })
 })
 
 //API

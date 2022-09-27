@@ -27,14 +27,31 @@ if(!req.body){
 }
 //retrieve and return user
 exports.find = (req,res) => {
-Userdb.find()
-.then (user => {
-    res.send(user)
-})
+    // single user
+    if(req.query.id){
+        const id = req.query.id;
+        Userdb.findById(id)
+        .then(data => {
+            if(!data){
+                res.status(404).send({message : `user not found with id ${id}`})
+            }else{
+                res.send(data)
+            }
+        })
+        .catch(err => {
+            res.status(500).send({message : "Error occured with " })
+        })
+    }else{
+         Userdb.find()
+        .then (user => {
+         res.send(user)
+        })
     .catch(err => {
         res.status(500).send({message : err.message || "error occured while retrieving user info"})
     })
-}
+    }
+ }
+
 
 //update a user by id
 exports.update = (req,res) => {
