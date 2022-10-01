@@ -6,6 +6,7 @@ const path = require('path');
 const { registerPartials } = require("hbs");
 
 require('./db/conn');
+const UserModel = require("./models/userMessage")
 
 const port = 8000 || process.env.PORT;
 
@@ -18,6 +19,9 @@ const pathForPartials = path.join(__dirname , "../templates/partials");
 app.use('/css', express.static(path.join(__dirname, "../node_modules/bootstrap/dist/css")));
 app.use('/js', express.static(path.join(__dirname, "../node_modules/bootstrap/dist/js")));
 app.use('/jq', express.static(path.join(__dirname, "../node_modules/jquery/dist")));
+app.use(express.urlencoded({
+    extended : false
+}))
 app.use(express.static(pathForPublic));
 app.set("view engine" , "hbs");
 app.set("views" , pathForViews);
@@ -30,6 +34,17 @@ app.get("/" , (req , res) => {
 app.get("/contact" ,(req , res) => {
     res.render("contact");
 })
+app.post("/contact" , async(req,res) => {
+    try {
+        // res.send(req.body);
+        const userData = new UserModel(req.body);
+         await userData.save();
+         res.status(201).render("index");
+    } catch (error) {
+        res.status(500).send(error);
+    }
+})
+
 //server
 app.listen(port , () => {
     console.log(`listening to port no. ${port}`);
