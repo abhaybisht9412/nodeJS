@@ -22,6 +22,21 @@ app.post("/api-post" , async(req , res) => {
         console.log(error);
     }
 })
+//get 
+app.get("/api-get/:ranking" , async(req , res) => {
+    try {
+        const _id = req.params.ranking;
+        console.log(_id);
+        const data = await myModel.findById(_id);
+        if(!data){
+            return res.status(404).send();
+        }else{
+            res.send(data);
+        }
+    } catch (error) {
+        res.status(404).send(error);
+    }
+})
 
 app.listen(port , () => {
     console.log(`listening to port ${port}`)
