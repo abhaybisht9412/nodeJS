@@ -1,0 +1,19 @@
+{
+  "name": "smallweather",
+  "version": "1.0.0",
+  "description": "WEATHER UI MINI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "server"
+  ],
+  "author": "abhay",
+  "license": "ISC",
+  "dependencies": {
+    "requests": "^0.3.0"
+  }
+}
