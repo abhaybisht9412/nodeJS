@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect ("mongodb://localhost:27017/bisht" , {useNewUrlParser : true , 
-useUnifiedTopology : true})
+mongoose.connect ("mongodb://127.0.0.1:27017/hhhhhh")
 .then( () => console.log("connection established..."))
 .catch( (err) => console.log(err)) ;
 
@@ -23,7 +22,7 @@ const playlistSchema = new mongoose.Schema({
 })
 
 //models or collection for playlist
-const Playlist  = new mongoose.model("Playlist",playlistSchema);
+const Playlist  = new mongoose.model("brandNewPlay",playlistSchema);
 
 //document
 
